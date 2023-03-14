@@ -25,16 +25,6 @@ export class ChangeP extends Component {
                                                 Forgot Password?
                                             </a>
                                         </div>
-                                        <div className="col-md-6">
-                                            <div className="common-input mb-5">
-                                                <input type="password" placeholder="New password" />
-                                            </div>
-                                        </div>
-                                        <div className="col-md-6">
-                                            <div className="common-input mb-5">
-                                                <input type="password" placeholder="Re enter password" />
-                                            </div>
-                                        </div>
 
 
                                         <div className="col-md-12">

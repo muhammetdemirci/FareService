@@ -33,13 +33,6 @@ export default function RadioBoxButton(props: IRadioBoxButtonProps) {
         type == "radio" ? onChange(true) : onChange(!checked);
       }}
     >
-      <input
-        type={type}
-        name="slots"
-        className={clsx([`w-[2rem] h-[2rem] `, { active: checked }])}
-        checked={checked}
-        onChange={(e) => onChange(e.target.checked)}
-      />
       <span className="mx-3">{text}</span>
     </button>
   );
