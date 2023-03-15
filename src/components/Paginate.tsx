@@ -29,6 +29,13 @@ const Paginate = ({ current_page, last_page, id, func, params }: IPaginateProps)
             }));
         }
     }, [current_page, last_page]);
+    const handlePageClick = ({ selected }) => {
+        let newParams = new URLSearchParams({
+            ...params,
+            page: selected + 1,
+        }).toString();
+        dispatch(func({ id, params: `?${newParams}` }));
+    };
     return (
       state.last_page &&
       state.current_page && (
