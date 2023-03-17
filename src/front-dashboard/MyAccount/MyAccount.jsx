@@ -271,93 +271,6 @@ export const MyAccount = (props) => {
             >
               My Account
             </div>
-            <div className="col-md-12 service-time-box d-flex align-items-center justify-content-center flex-wrap">
-                <div
-                  className="text-center col-md-12"
-                  style={{
-                    fontWeight: "bold",
-                    fontSize: "2rem",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  <span>Address details</span>
-                  <button
-                    data-backdrop="static"
-                    data-keyboard="false"
-                    data-toggle="modal"
-                    data-target={`#model`}
-                    className="button-common mb-4"
-                    disabled={!isLoaded}
-                  >
-                    <i className="fa fa-plus"></i> Add Address
-                  </button>
-                </div>
-                {(() => {
-                  if (addressList?.data) {
-                    return addressList?.data?.map((address, index) => (
-                      <div
-                        style={{
-                          cursor: "default",
-                        }}
-                        key={index}
-                        className="address-card row"
-                      >
-                        <div className="col-md-9">{address?.address}</div>
-                        <div className="col-md-3">
-                          <span
-                            // data-backdrop="static"
-                            // data-keyboard="false"
-                            // data-toggle="modal"
-                            // data-target="#delete"
-                            style={{
-                              fontSize: "1.5rem",
-                              float: "right",
-                              color: "#ff0000",
-                              cursor: "pointer",
-                            }}
-                            onClick={async () => {
-                              await ReactSwal.fire({
-                                title: "Are you sure?",
-                                text: "You won't be able to revert this!",
-                                icon: "warning",
-                                showCancelButton: true,
-                                confirmButtonColor: "#3085d6",
-                                cancelButtonColor: "#d33",
-                                confirmButtonText: "Yes, delete it!",
-                                allowOutsideClick: false,
-                                showCloseButton: true,
-                              }).then((result) => {
-                                result.isConfirmed && deleteAddress(address.id);
-                              });
-                            }}
-                          >
-                            Delete{" "}
-                            <i
-                              className="fa fa-trash fa-1x"
-                              aria-hidden="true"
-                            ></i>
-                          </span>
-                        </div>
-
-                        <div className="col-md-6">
-                          Zip Code: {address?.zip_code}
-                        </div>
-                        <div className="col-md-6">
-                          <span
-                            style={{
-                              float: "right",
-                            }}
-                          >
-                            {address.type}
-                          </span>
-                        </div>
-                      </div>
-                    ));
-                  }
-                })()}
-              </div>
             <div className="row">
               <div className="col-lg-4">
                 {(() => {
@@ -486,6 +399,93 @@ export const MyAccount = (props) => {
                   : !paymentCard?.loading && (
                       <div className="col-md-12 d-flex">Not Found</div>
                     )}
+              </div>
+              <div className="col-md-12 service-time-box d-flex align-items-center justify-content-center flex-wrap">
+                <div
+                  className="text-center col-md-12"
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: "2rem",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <span>Address details</span>
+                  <button
+                    data-backdrop="static"
+                    data-keyboard="false"
+                    data-toggle="modal"
+                    data-target={`#model`}
+                    className="button-common mb-4"
+                    disabled={!isLoaded}
+                  >
+                    <i className="fa fa-plus"></i> Add Address
+                  </button>
+                </div>
+                {(() => {
+                  if (addressList?.data) {
+                    return addressList?.data?.map((address, index) => (
+                      <div
+                        style={{
+                          cursor: "default",
+                        }}
+                        key={index}
+                        className="address-card row"
+                      >
+                        <div className="col-md-9">{address?.address}</div>
+                        <div className="col-md-3">
+                          <span
+                            // data-backdrop="static"
+                            // data-keyboard="false"
+                            // data-toggle="modal"
+                            // data-target="#delete"
+                            style={{
+                              fontSize: "1.5rem",
+                              float: "right",
+                              color: "#ff0000",
+                              cursor: "pointer",
+                            }}
+                            onClick={async () => {
+                              await ReactSwal.fire({
+                                title: "Are you sure?",
+                                text: "You won't be able to revert this!",
+                                icon: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#3085d6",
+                                cancelButtonColor: "#d33",
+                                confirmButtonText: "Yes, delete it!",
+                                allowOutsideClick: false,
+                                showCloseButton: true,
+                              }).then((result) => {
+                                result.isConfirmed && deleteAddress(address.id);
+                              });
+                            }}
+                          >
+                            Delete{" "}
+                            <i
+                              className="fa fa-trash fa-1x"
+                              aria-hidden="true"
+                            ></i>
+                          </span>
+                        </div>
+
+                        <div className="col-md-6">
+                          Zip Code: {address?.zip_code}
+                        </div>
+                        <div className="col-md-6">
+                          <span
+                            style={{
+                              float: "right",
+                            }}
+                          >
+                            {address.type}
+                          </span>
+                        </div>
+                      </div>
+                    ));
+                  }
+                })()}
               </div>
             </div>
           </div>

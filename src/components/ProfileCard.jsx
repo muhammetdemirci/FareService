@@ -60,6 +60,22 @@ const ProfileCard = ({ profile }) => {
                 className="d-none"
                 onChange={handleImageChange}
               ></input>
+              {!!imageUpdate?.loading && (
+                <i
+                  style={{
+                    position: "absolute",
+                    top: "40%",
+                    left: "40%",
+                    // transform: "translate(-50%, -50%)",
+                    fontSize: "30px",
+                    // backgroundColor: "rgba(0,0,0,0.5)",
+                    redius: "50%",
+                    color: "white",
+                    cursor: "pointer",
+                  }}
+                  className="fa fa-spinner fa-pulse fa-4x"
+                ></i>
+              )}
               <label
                 className="fa fa-camera-retro fa-2x"
                 style={{
