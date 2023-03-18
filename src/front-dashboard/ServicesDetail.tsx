@@ -144,6 +144,22 @@ export const ServicesDetail = (props) => {
                         {data?.working_status || "Pending"}
                       </span>
                     </li>
+                    <li className="list-group-item d-flex justify-between">
+                      Worked Hours:
+                      <span className="font-bold">
+                        {data?.worked_hours || 0}
+                      </span>
+                    </li>
+                    <li className="list-group-item d-flex justify-between">
+                      Address:
+                      <span className="font-bold">{data?.address}</span>
+                    </li>
+                    <li className="list-group-item d-flex justify-between">
+                      Service Type:
+                      <span className="font-bold">
+                        {data?.requested_sub_service?.name || data?.type}
+                      </span>
+                    </li>
                   </ul>
                 );
               })()}
