@@ -39,6 +39,7 @@ export const FAQItem: React.FC<{ faq: IFAQ }> = ({ faq }) => {
 };
 
 export default function FAQ(props: IFAQProps) {
+  const [loading, setLoading] = React.useState(false);
   const {
     isLoading,
     error,
@@ -46,11 +47,21 @@ export default function FAQ(props: IFAQProps) {
   } = useQuery<{ data: IFAQ[] }>("faqs", async () => {
     return (await axios.get(`${HOST}/api/user/faqs`)).data;
   });
+
+  React.useEffect(() => {
+    setLoading(isLoading);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, [isLoading]);
+
   let faqList = faqResData?.data || [];
+  console.log("isLoading", isLoading, faqList, error);
   return (
     <section className="">
       <div className="container py-16 space-y-6">
-        <Loading loading={isLoading}></Loading>
+        <Loading loading={loading}></Loading>
         <div className="text-center text-[6rem] font-medium">FAQ</div>
         {faqList.map((faq) => (
           <FAQItem faq={faq} key={faq.id} />
@@ -59,3 +70,4 @@ export default function FAQ(props: IFAQProps) {
     </section>
   );
 }
+
